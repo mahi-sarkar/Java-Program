@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+public class ReverseString {
+    public static void main(String[] args) {
+        // Create a Scanner object to read user input
+        Scanner scanner = new Scanner(System.in);
+        
+        // Prompt the user to enter a string
+        System.out.print("Enter a string: ");
+        
+        // Read the input string from the user
+        String input = scanner.nextLine();
+        
+        // Call the reverseString function and print the reversed string
+        String reversed = reverseString(input);
+        System.out.println("Reversed string: " + reversed);
+        
+        // Close the scanner
+        scanner.close();
+    }
+    
+    // Function to reverse a string
+    public static String reverseString(String str) {
+        // Convert the string to a character array
+        char[] charArray = str.toCharArray();
+        
+        // Initialize pointers for reversing the string
+        int left = 0;
+        int right = charArray.length - 1;
+        
+        // Reverse the characters in the array
+        while (left < right) {
+            // Swap characters at left and right pointers
+            char temp = charArray[left];
+            charArray[left] = charArray[right];
+            charArray[right] = temp;
+            
+            // Move pointers towards the center
+            left++;
+            right--;
+        }
+        
+        // Convert the character array back to string
+        return new String(charArray);
+    }
+}
